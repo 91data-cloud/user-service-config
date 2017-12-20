@@ -1,0 +1,59 @@
+spring:
+  application:
+   name: ebk-user-service
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:mysql://rm-uf61lim4ys05z:3306/ebk_user?characterEncoding=utf-8&useSSL=false
+    name: ebk_user
+    username: root
+    password: root
+    tomcat:
+      max-active: 200 
+      min-idle: 10 
+      initial-size: 10 
+      driver-class-name: com.mysql.jdbc.Driver
+      validation-query: select 1
+      test-on-borrow: true 
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update           
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl 
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  zipkin: 
+    base-url: http://localhost:9411
+  sleuth: 
+    sampler: 
+      percentage: 1 
+  
+eureka: 
+  client:
+    serviceUrl: 
+      defaultZone: http\://localhost\:8761/eureka/
+    eureka-server-read-timeout-seconds: 60
+    eureka-server-connect-timeout-seconds: 60
+  instance: 
+    leaseRenewalIntervalInSeconds: 5  
+    leaseExpirationDurationInSeconds: 15    
+feign:
+  hystrix:
+    enabled: false     
+hystrix: 
+  command: 
+    default: 
+      execution: 
+        isolation:
+          thread: 
+            timeoutInMilliseconds: 5000 
+swagger: 
+  req.url:
+    localhost: 8130
+profile: ebk-user-dev
+ 
+     
+    
+    
+      
