@@ -51,7 +51,7 @@ hystrix:
 swagger: 
   req.url:
     localhost: 8130
-profile: ebk-user-dev-MODIFY-version
+profile: ebk-user-dev-MODIFY-version2.0
  
      
     
